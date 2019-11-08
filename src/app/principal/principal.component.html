@@ -1,0 +1,80 @@
+<form class="search" action="/action_page.php" style="margin:auto;max-width:60%">
+    <input type="text" placeholder="Search.." name="search" [(ngModel)]="filterHero">
+    <div class="button"><i class="fa fa-search" style="float: right;"></i></div>
+</form>
+
+  <div class="container-fluid" >
+    <div class="row" style="padding-left: 10%; padding-right: 10%; margin-bottom: 10%;">
+      <div class="col-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let listHeroes of itemsHeroes | async | filter:filterHero">
+          <div class="row" class="border border-grey" style="margin: 6% -3% 6% -3%;">
+              <div class="col-12" *ngIf="img < 992">
+                <img src='{{listHeroes.images.sm}}' alt="" (click)="open(content)">
+              </div>
+              <div class="col-12" *ngIf="img >= 992">
+                <img src='{{listHeroes.images.md}}' alt="" (click)="open(content)">
+              </div>
+              <div class="col-12 titleName" >
+                <h4>{{listHeroes.name}}</h4>
+              </div>
+              <div class="col-12" >
+                Intelligence: {{listHeroes.powerstats.intelligence}}
+              </div>
+              <div class="col-12" >
+                Speed: {{listHeroes.powerstats.speed}}
+              </div>
+              <div class="col-12" >
+                Power: {{listHeroes.powerstats.power}}
+              </div>
+
+              <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">{{listHeroes.name}}</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="title">Powerstats</div>
+                    <div>Intelligence: {{listHeroes.powerstats.intelligence}}</div>
+                    <div>Strength: {{listHeroes.powerstats.strength}}</div>
+                    <div>Speed: {{listHeroes.powerstats.speed}}</div>
+                    <div>Durability: {{listHeroes.powerstats.durability}}</div>
+
+                    <div class="title">Appearance</div>
+                    <div>Gender: {{listHeroes.appearance.gender}}</div>
+                    <div>Race: {{listHeroes.appearance.race}}</div>
+                    <div>Height: {{listHeroes.appearance.height}}</div>
+                    <div>Weight: {{listHeroes.appearance.weight}}</div>
+                    <div>Eye color: {{listHeroes.appearance.eyeColor}}</div>
+                    <div>Hair color: {{listHeroes.appearance.hairColor}}</div>
+
+                    <div class="title">Biography</div>
+                    <div>Full Name: {{listHeroes.biography.fullName}}</div>
+                    <div>Alter egos: {{listHeroes.biography.alterEgos}}</div>
+                    <div>Aliases: {{listHeroes.biography.aliases}}</div>
+                    <div>Place of birth: {{listHeroes.biography.placeOfBirth}}</div>
+                    <div>First appearance: {{listHeroes.biography.firstAppearance}}</div>
+                    <div>Publisher: {{listHeroes.biography.publisher}}</div>
+                    <div>Alignment: {{listHeroes.biography.alignment}}</div>
+
+                    <div class="title">Work</div>
+                    <div>Occupation: {{listHeroes.work.occupation}}</div>
+                    <div>base: {{listHeroes.work.base}}</div>
+
+                    <div class="title">Connections</div>
+                    <div>Group affiliation: {{listHeroes.connections.groupAffiliation}}</div>
+                    <div>Relatives: {{listHeroes.connections.relatives}}</div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cerrar</button>
+                  </div>
+                </ng-template>
+
+
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
