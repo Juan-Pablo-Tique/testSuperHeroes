@@ -30,68 +30,6 @@ export class PrincipalComponent implements OnInit {
     this.itemsHeroes = this.heroes.getSuperHeroes();
   }
 
-  // setHero(hero){
-  //   let listHeroes: Observable<any>;
-  //   const routes = '/id.json' + hero;
-  //   listHeroes = this.heroes.getSuperHeroes(routes);
-  //   listHeroes.subscribe(resultHeroes => {
-  //     this.itemsHeroes = resultHeroes;
-  //   });
-  // }
-
-  // setPowerStats(){
-  //   let listHeroes: Observable<any>;
-  //   const routes = '/powerstats.json';
-  //   listHeroes = this.heroes.getSuperHeroes(routes);
-  //   listHeroes.subscribe(resultHeroes =>{
-  //     this.itemsHeroes = resultHeroes;
-  //   });
-  // }
-
-  // setAppearance(){
-  //   let listHeroes: Observable<any>;
-  //   const routes = '/appearance.json';
-  //   listHeroes = this.heroes.getSuperHeroes(routes);
-  //   listHeroes.subscribe(resultHeroes =>{
-  //     this.itemsHeroes = resultHeroes;
-  //   });
-  // }
-
-  // setBiography(){
-  //   let listHeroes: Observable<any>;
-  //   const routes = '/biography.json';
-  //   listHeroes = this.heroes.getSuperHeroes(routes);
-  //   listHeroes.subscribe(resultHeroes =>{
-  //     this.itemsHeroes = resultHeroes;
-  //   });
-  // }
-
-  // setConnections(){
-  //   let listHeroes: Observable<any>;
-  //   const routes = '/connections.json';
-  //   listHeroes = this.heroes.getSuperHeroes(routes);
-  //   listHeroes.subscribe(resultHeroes =>{
-  //     this.itemsHeroes = resultHeroes;
-  //   });
-  // }
-
-  // setWork() {
-  //   let listHeroes: Observable<any>;
-  //   const routes = '/work.json';
-  //   listHeroes = this.heroes.getSuperHeroes(routes);
-  //   listHeroes.subscribe(resultHeroes =>{
-  //     this.itemsHeroes = resultHeroes;
-  //   });
-  // }
-    selectHero(idHero) {
-      this.itemHeroSelect = this.heroes.getHero(idHero);
-      console.log('un hero ' + this.itemHeroSelect);
-    }
-
-    selectHero2() {
-      console.log('un hero ');
-    }
-
     open(content) {
       this.modalService.open(content).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
