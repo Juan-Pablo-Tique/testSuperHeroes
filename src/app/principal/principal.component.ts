@@ -9,10 +9,13 @@ import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-b
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
-  public itemsHeroes: any;
-  public filterHero: string;
-  public img: number;
+  itemsHeroes: any;
+  filterHero: string;
+  img: number;
   closeResult: string;
+
+  page = 4;
+  pageSize = 36;
   // tslint:disable-next-line: ban-types
   itemHeroSelect: Observable <Object>;
   constructor(private heroes: JsonHeroService, private ngZone: NgZone, private modalService: NgbModal) {
@@ -27,7 +30,7 @@ export class PrincipalComponent implements OnInit {
         });
     };
 
-    this.itemsHeroes = this.heroes.getSuperHeroes();
+    this.heroes.getSuperHeroes().subscribe(res => this.itemsHeroes =res);
   }
 
     open(content) {
